@@ -1,0 +1,61 @@
+{
+  "run_utc": "2026-10-25T17:31:05.678740+00:00",
+  "retriever": "all-MiniLM-L6-v2 cosine + Okapi BM25 + RRF@60",
+  "auto_provider_counts": {
+    "Gemini (cache)": 15,
+    "retrieval_refusal": 8,
+    "Gemini": 7
+  },
+  "thresholds": {
+    "threshold": 0.52,
+    "min_overlap": 0.3,
+    "dev_accuracy": 1.0,
+    "dev_questions": 15,
+    "dev_scope_counts": {
+      "in_scope": 8,
+      "out_of_scope": 7
+    },
+    "grid": {
+      "thresholds": [
+        0.04,
+        0.9,
+        0.01
+      ],
+      "min_overlap": [
+        0,
+        0.3,
+        0.02
+      ]
+    }
+  },
+  "modes": {
+    "passage_only": {
+      "hit@5": 0.8,
+      "mrr": 0.4766666666666667,
+      "refusal_accuracy": 0.9,
+      "labeled_retrieval_questions": 20,
+      "refusal_labeled_questions": 10,
+      "citation_validity": 0.8181818181818182,
+      "sentence_support": 0.6917073257025413,
+      "provider_counts": {
+        "Gemini (cache)": 15,
+        "retrieval_refusal": 8,
+        "passage_fallback": 7
+      }
+    },
+    "llm_auto": {
+      "hit@5": 0.8,
+      "mrr": 0.4766666666666667,
+      "refusal_accuracy": 1.0,
+      "labeled_retrieval_questions": 20,
+      "refusal_labeled_questions": 10,
+      "citation_validity": 0.8095238095238095,
+      "sentence_support": 0.6298185941043084,
+      "provider_counts": {
+        "Gemini (cache)": 15,
+        "retrieval_refusal": 8,
+        "Gemini": 7
+      }
+    }
+  }
+}

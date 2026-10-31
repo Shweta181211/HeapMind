@@ -1,0 +1,62 @@
+{
+  "created_date": "2026-10-25",
+  "knowledge_base_policy": "Only the two user-supplied PDFs are ingested.",
+  "course_title_extracted_from_pdf": "6.006 Introduction to Algorithms Fall 2011",
+  "lecture_title_extracted_from_files": [
+    "6.006 Lecture 04: Heaps and heap sort",
+    "MITOCW | 4. Heaps and Heap Sort"
+  ],
+  "instructor_text_from_pdf_metadata_or_opening_pages": [
+    "PDF author metadata: Leiserson, Charles | Indyk, Piotr | Daskalakis, Constantinos | Devadas, Srini"
+  ],
+  "instructor_identification_note": "User identifies this lecture as taught by Srini Devadas. Transcript labels speaker only as PROFESSOR; notes PDF author metadata lists multiple people including Srini Devadas.",
+  "lecture_resource_url": "UNVERIFIED: no lecture-specific URL is present in the supplied PDFs",
+  "general_urls_found_in_pdf": [
+    "http://ocw.mit.edu",
+    "http://ocw.mit.edu/terms"
+  ],
+  "transcript_timestamp_status": "No timestamp pattern found in transcript; cite lecture title + page only.",
+  "sources": [
+    {
+      "file": "8ebfeb1c645b10b3709919603e7d51be_MIT6_006F11_lec04.pdf",
+      "sha256": "b4ae7535c7ae40f3d0aef2da684218213d44ee30103e3c3de28bc6e288339de0",
+      "pages": 28,
+      "pdf_metadata": {
+        "title": "6.006 Lecture 04: Heaps and heap sort",
+        "author": "Leiserson, Charles | Indyk, Piotr | Daskalakis, Constantinos | Devadas, Srini",
+        "creationDate": "D:20110921145414-04'00'"
+      },
+      "lecture_title_extracted": "6.006 Lecture 04: Heaps and heap sort",
+      "course_line_extracted": "6.006 Introduction to Algorithms Fall 2011",
+      "instructor_text_extracted": [
+        "PDF author metadata: Leiserson, Charles | Indyk, Piotr | Daskalakis, Constantinos | Devadas, Srini"
+      ],
+      "urls_found_in_pdf": [
+        "http://ocw.mit.edu",
+        "http://ocw.mit.edu/terms"
+      ],
+      "is_transcript_document": false,
+      "has_timestamp_pattern": false,
+      "opening_text_for_verification": "6.006- Introduction to \nAlgorithms \nLecture 4 \n1\nCourtesy of MIT Press. Used with permission.\n\nMenu \n• Priority Queues \n• Heaps \n• Heapsort \n \n \n2\n\nPriority Queue \nA data structure implementing a set S of elements, each \nassociated with a key, supporting the following operations: \nincrease_key(S, x, k) : \ninsert element x into set S \nreturn element of S with largest key \nreturn element of S with largest key and \nremove it from S \nincrease the value of element x’ s key to \nnew value k \n(assumed to be as large as current value) \ninsert(S, x) : \nmax(S) : \nextract_max(S) : \n3"
+    },
+    {
+      "file": "ebf9f8cb1129d112a39066990693ca6f_B7hVxCmfPtM.pdf",
+      "sha256": "bc23230d73e02359d3133188dedb2ea356742dfa4dbf2040353abd0956177d70",
+      "pages": 16,
+      "pdf_metadata": {
+        "creationDate": "D:20150522072355Z"
+      },
+      "lecture_title_extracted": "MITOCW | 4. Heaps and Heap Sort",
+      "course_line_extracted": "NOT FOUND IN FILE TEXT",
+      "instructor_text_extracted": [
+        "NOT FOUND IN FILE TEXT"
+      ],
+      "urls_found_in_pdf": [],
+      "is_transcript_document": true,
+      "has_timestamp_pattern": false,
+      "opening_text_for_verification": "MITOCW | 4. Heaps and Heap Sort\nThe following content is provided under a Creative Commons license. Your support\nwill help MIT OpenCourseWare continue to offer high quality educational resources\nfor free. To make a donation or view additional materials from hundreds of MIT\ncourses, visit MIT OpenCourseWare at ocw.mit.edu.\nPROFESSOR:\nOne of the cutest little data structures that was ever invented is called the heap. And\nwe're going to use the heap as an example implementation of a priority queue. And\nwe'll also use heaps to build a sorting algorithm, called heap sort, that is very, very\ndifferent from either insertion sort or merge sort. And it has some nice properties\nthat neither insertions sort nor merge sort have.\nBut what I want to do is get started with motivating the heap data structure,\nregardless of whether you're interested in sorting or not. So the notion of a priority\nqueue, I think, makes intuitive sense to all of you. It's essentially a structure that\nimplements a set S of elements. And each of these elements is associated with the\nkey. And as you can imagine, a priority queue is something where you queue up for\nsomething, you want to buy something, you want to sell something. You have\ncertain priorities assigned to you, and you want to pick the maximum priority or the\nmin priority. You want to be able to delete it from the queue. You want to be able to\ninsert things into this queue. You want to be able to change priorities in the queue.\nSo all of these operations are interesting operations that should run fast, and for\nsome definition of fast. Obviously we are interested in the asymptotic complexity\ndefinition of fast. In that case, we'll be saying does this operation run an order n\ntime, order log n time, et cetera.\nSo in general, I think for the next few lectures, you're going to see a specification of\ndata structure in terms of the operations that the data structure should perform. And\nthose of you who have taken six double O five, you'll see that it's basically an\nabstract data type that's associated with these operations. So it's a spec for the\nabstract data type.\n1\n\nIn six double O five, you had really spent a lot of time on asymptotic complexity, or\nthe efficiency of operations on the abstract data type. Here, in double O six, you'll\nspecify this ADT, and specify the set of operations or methods in the ADT. And we'll\ntalk about whether these are order end complexity log end complexity, and compare\nand contrast different ADTs.\nSo today's ADT is a heap. And what is the set of operations that we'd like to perform\non a priority queue? So we can use that to motivate the development of the heap.\nAnd those are, insert s x. So you have a set of elements s, and you want to be able\nto insert element x into set s. You want to be able to do max of s, which is return the\nelement of s with the largest key. And different from max of s is extract max of x,\nwhich not only returns the element with the largest key, but also removes it from s.\nSo you have a queue, and the person in the queue was serviced, or the element in\nthe queue was serviced, and then removed from the queue. And finally you can\nimagine changing the priority of a particular element x in the set s. And this priority,\nthere's an associated key as we have up there with each element. And that key is\ncalled a k. And increase key s x k would increase the value of x's key to the new\nvalue k.\nAnd k could correspond to, it's just called increase. Most of the time, you're\nincreasing the value in maybe a particular application. You could have suddenly a\ndecrease key, and you would have to know what the previous value was. And is just\na matter of exactly what operation you want to perform. You could call it update, or\nincrement, whatever you like.\nI'm going to spend most of the time here talking about how you maintain a rep\ninvariant of this data structure called the heap, that allows you to do these\noperations in an efficient way. And we'll talk about what the efficiency is, and we'll try\nto analyze the efficiency of these algorithms that we put up.\nSo let's talk about a heap. A heap is an implementation of a priority queue. It's\namazingly and array structure, except that you're visualizing this array as a nearly\ncomplete binary tree. And what does that mean exactly? Well, the best way to\n2\n\nunderstand that is by looking at an example. We got 10 here, so. 1, 2, 3, 4, 5, 6, 7,\n8, 9, 10.\nSo here's my array of 10 elements. And the elements are 16, 14, 10, 8, 7. So some\nset of elements that are in random order, clearly not sorted, and I'm looking at the\nindices, and I'm looking at the elements. I'm going to visualize this as a nearly\ncomplete binary tree. Is not a full binary tree, because I only have 10 elements in it,\nand it would have to have 15 elements to be a complete binary tree. And we want to\nbe able to do the general case of an arbitrary size array, and so that's why we have\nnearly complete here.\nSo what does it mean to visualize this as a t"
+    }
+  ],
+  "task_page_mismatch": "Task page names Erik Demaine and Srini Devadas; the supplied lecture material is Fall 2011 Lecture 4 and its notes PDF metadata lists multiple authors. Verify this course/lecture choice against the task page.",
+  "citation_policy": "Cite the lecture title and PDF page number; do not use video IDs, YouTube URLs, or timestamps."
+}

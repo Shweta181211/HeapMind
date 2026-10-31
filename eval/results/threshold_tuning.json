@@ -1,0 +1,22 @@
+{
+  "threshold": 0.52,
+  "min_overlap": 0.3,
+  "dev_accuracy": 1.0,
+  "dev_questions": 15,
+  "dev_scope_counts": {
+    "in_scope": 8,
+    "out_of_scope": 7
+  },
+  "grid": {
+    "thresholds": [
+      0.04,
+      0.9,
+      0.01
+    ],
+    "min_overlap": [
+      0,
+      0.3,
+      0.02
+    ]
+  }
+}

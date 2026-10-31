@@ -1,0 +1,8 @@
+{
+  "attempted": true,
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "result": "unavailable",
+  "error_type": "OSError",
+  "run_condition": "HF_HUB_OFFLINE=1; model was not cached and network access was unavailable",
+  "decision": "Do not enable the reranker; no valid before/after reranking metric could be measured."
+}

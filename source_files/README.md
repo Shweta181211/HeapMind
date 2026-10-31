@@ -1,0 +1,1 @@
+Place only the three assigned lecture PDFs here: transcript, lecture notes, and slides. The ingestion script copies every PDF in this folder into `archive/originals/` and uses no other knowledge source.

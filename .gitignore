@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.vendor/
+.cache/
+.build/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+*.mp4
+data/index/
+data/answer_cache.sqlite3

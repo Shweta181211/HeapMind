@@ -1,0 +1,14 @@
+{
+  "hit@5": 0.8,
+  "mrr": 0.4766666666666667,
+  "refusal_accuracy": 1.0,
+  "labeled_retrieval_questions": 20,
+  "refusal_labeled_questions": 10,
+  "citation_validity": 0.8095238095238095,
+  "sentence_support": 0.6298185941043084,
+  "provider_counts": {
+    "Gemini (cache)": 15,
+    "retrieval_refusal": 8,
+    "Gemini": 7
+  }
+}
